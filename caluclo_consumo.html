@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<h3>Álcool ou Gasolina?</h3>
+
+
+<script>
+    var tanque = 40; 
+    var caminhoComGasolina = 480; 
+    var consumoGasolina = caminhoComGasolina/tanque;  
+    var caminhoComAlcool = 300; 
+    var consumoAlcool = caminhoComAlcool/tanque; 
+
+    document.write("No seu carro com um tanque de 40L o seu consumo nos devidos combustiveis é de: <br>");
+    document.write("Consumo na gasolina: " + consumoGasolina + " km/l. <br>");
+    document.write("Consumo no álcool: " + consumoAlcool + " km/l.<br>");
+    document.write("O combustível mais eficiente no seu carro é: ")
+
+    if (consumoAlcool => consumoGasolina) {
+        document.write("Álcool.");
+    }
+    else{
+        ddocument.write("Gasolina.")
+    }
+
+
+</script>
+
