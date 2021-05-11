@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script>
+    function linha () {
+        document.write("<br>")
+    }
+    function mostra (frase) {
+        document.write(frase)
+        linha()
+    }
+
+    var chute;
+    chute = parseInt(prompt("Qual o número que eu estou pensando?(de 1 a 10)","Digite aqui o seu chute"));
+
+    var numero;
+    numero = Math.round(Math.random()*10)
+
+    if (numero == chute) {
+        mostra("<big>Parabéns! Eu realmente estava pensando no número " + numero +"!</big>")
+    }
+    else {
+        mostra("<big>Você errou! O número que eu estava pensando era: " + numero + "!</big>")
+    }
+
+
+
+</script>

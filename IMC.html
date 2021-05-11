@@ -1,0 +1,41 @@
+<meta charset = "UTF-8">
+<script>
+    function linha () {
+        document.write("<br>")
+    }
+    function mostra (frase) {
+        document.write(frase)
+        linha()
+    }
+    function calculaimc (peso, altura) {
+        var imc = peso / (altura * altura);
+        return imc;
+    }
+    mostra("<big><h3>Programa para calcular imc </h3></big><hr>")
+    
+    var nome;
+    nome=prompt ("Qual o nome?","Digite nome aqui");
+    var peso
+    peso=prompt ("Qual o peso?","Digite o  peso")
+    var altura
+    altura=prompt ("Agora digite a  altura","Digite a altura aqui")
+    var imccalculado;
+    imccalculado = calculaimc (peso, altura)
+    mostra(nome + " pesa: " + "<span style='color:#F00'>"  + peso + "Kg</span><br>tem a altura de:  " + "<span style='color:#F00'>"  + altura +  "m</span><br> e tem o IMC de:" + "<span style='color:#F00'>" + Math.round(imccalculado) + "</span><hr>")
+    
+    var amigos;
+    amigos=confirm("Você deseja calcular o IMC de mais alguém?")
+        while (amigos==true) {
+            var nome;
+            nome=prompt ("Qual o nome?","Digite nome aqui");
+            var peso
+            peso=prompt ("Qual o peso?","Digite o  peso")
+            var altura
+            altura=prompt ("Agora digite a  altura","Digite a altura aqui")
+            var imccalculado;
+            imccalculado = calculaimc (peso, altura)
+            mostra(nome + " pesa: " + "<span style='color:#F00'>"  + peso + "Kg</span><br>tem a altura de:  " + "<span style='color:#F00'>"  + altura +  "m</span><br> e tem o IMC de:" + "<span style='color:#F00'>" + Math.round(imccalculado) + "</span><hr>")
+            amigos=confirm("Você deseja calcular o IMC de mais alguém?")
+        }
+       
+</script>  
