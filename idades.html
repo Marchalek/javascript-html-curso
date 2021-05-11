@@ -1,0 +1,34 @@
+<meta charset = "UTF-8">
+<script>
+    function linha () {
+        document.write("<br><hr>")
+    }
+    function mostra (frase) {
+        document.write("<big>" + frase + "</big>")
+        linha()
+    }
+
+    mostra("<h3>Programa para calcular diferença na idade </h3>")
+    
+    var seunome;
+    seunome=prompt ("Qual o seu nome?","Digite seu nome aqui");
+    var amgnome
+    amgnome=prompt ("Qual o nome do seu amigo?","Digite o nome do seu amigo aqui")
+    var suaidade
+    suaidade=prompt ("Agora digite a sua idade","Digite sua idade aqui")
+    var amgidade;
+    amgidade=prompt ("Agora digita a idade do seu amigo","Digite a idade do seu amigo aqui")
+    var difidade;
+    if (amgidade>suaidade) {
+        difidade = amgidade - suaidade
+    }
+    else {
+        difidade = suaidade - amgidade
+    }
+
+    mostra(seunome + " tem " + "<span style='color:#F00'>" + suaidade + "</span> anos")
+    mostra(amgnome + " tem " + "<span style='color:#F00'>" + amgidade + " </span>anos")
+    mostra("A diferença de idade entre você e o seu amigo é de:" + "<span style='color:#F00'>" + difidade + "</span> anos")
+
+
+</script>
