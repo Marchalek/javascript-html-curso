@@ -1,0 +1,37 @@
+<meta  charset="UTF-8">
+<head>
+<h1>Tente descobrir em qual número eu estou pensando de 1 a 10</h1>
+<input size="10">
+<button>Compare com o meu  número pensado</button>
+</head>
+<body>
+    <p>Resultado:</p>
+<script>
+    var segredo =2
+    var input = document.querySelector("input")
+        input.focus ();
+    var button = document.querySelector("button")
+    var tentativa = 0
+    var tentativarestante =  3 - tentativa
+    function verifica() {
+       if(input.value == segredo) {
+           document.append("<br><br><br><br><br><br><br><br><p>Você acertou!!O número que eu estava pensando realmente era " + segredo + "!!<br></p>")
+       }
+       else{
+            tentativa++
+            document.write("<br><br><br><br><br><br><br><br><p>Você errou, esse não era o número que eu estava pensando!!<br>Mas você ainda tem " + tentativarestante + " tentativas<hr></p>")
+
+            }
+        
+        if (tentativa == 3) {
+        document.write("Você esgotou suas tentativas<hr>")
+        }
+        input.value= "";
+       
+    }
+        
+    button.onclick = verifica; 
+
+</script>
+
+</body>

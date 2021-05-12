@@ -1,0 +1,36 @@
+<meta charset = "UTF-8">
+<script>
+    var logincorreto = "adriano";
+    var senhacorreta = "manolao";
+    var logininformado;
+    logininformado=prompt("Informe seu usaurio","Digite aqui seu usuario");
+    var senhainformada;
+    senhainformada=prompt("Informe sua senha","Digite aqui sua senha")
+    var tentativas = 1
+
+    if ( logininformado == logincorreto && senhainformada == senhacorreta) {
+        confirm("Acesso concedido")
+        document.write("Bem vindo " + logininformado)
+    }
+
+    if (logininformado != logincorreto || senhacorreta != senhainformada) {
+    
+    while (tentativas <3 ) {
+        confirm("Login incorreto tente novamente")
+        logininformado=prompt("Informe seu usaurio","Digite aqui seu usuario");
+        senhainformada=prompt("Informe sua senha","Digite aqui sua senha")
+        tentativas = tentativas + 1
+
+            if ( logininformado == logincorreto && senhainformada == senhacorreta) {
+            confirm("Acesso concedido");
+            document.write("Bem vindo " + logininformado);
+            break;
+            }
+    }
+
+    if (tentativas >= 3 && (logininformado != logincorreto || senhacorreta != senhainformada)) {
+        confirm("Você esgotou seu número máximo de tentativas pra login");
+        document.write("<h1>Acesso negado</h1>");
+    }}
+
+</script>
