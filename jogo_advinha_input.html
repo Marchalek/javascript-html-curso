@@ -1,45 +1,109 @@
 <meta  charset="UTF-8">
 <head>
-<h1>Tente descobrir em qual número eu estou pensando de 1 a 10</h1>
+<h1>Tente descobrir algum dos números que eu estou pensando de 1 a 10</h1>
 <input size="10">
-<button>Compare com o meu  número pensado</button>
+<button>Compare com os meus  números</button>
 </head>
 <body>
     <p>Resultado:</p>
 <div id="content">
 
 </div>
-<script>
-    var segredo = Math.floor(Math.random() * 10) + 1
-        console.log(segredo)
+<script>    
+   function sorteia () {
+        return Math.floor(Math.random() * 10) + 1
+        }
+   
+    function sorteianumeros (quantidade) {
+        var segredos = [];
+
+        var ndesorteios = 1
+
+        while (ndesorteios <= quantidade) {
+            var numeroaleatorio = sorteia();
+            var achou  = false;
+
+            for (var posicao = 0; posicao < segredos.length; posicao++) {
+                if(segredos[posicao] == numeroaleatorio){
+                    achou = true
+                    break;
+                }
+            }    
+                if (achou == false) {
+                    segredos.push(numeroaleatorio)
+                    ndesorteios++
+                }
+            }
+            return segredos;
+    }
+   
+    
+    
+    function verifica() {
+        var erros=0
+        var achou = false
+        if (tentativarestante>-1){
+        tentativarestante = tentativarestante -1}
+        console.log("tentativas restantes:" + tentativarestante)
+            if (input.value != 0) {
+                if (tentativarestante >= 0){
+                        if (tentativarestante>0){
+                            var posicao = 0   
+                            while (posicao < quantiapool && tentativarestante >= 1){
+                                if(input.value == segredos[posicao]) {
+                                achou=true
+                                document.getElementById("content").innerHTML ="Você acertou!!Os números que eu estava pensando eram " + segredos + "!!"
+                                break
+                                    }
+                                if (input.value != segredos[posicao]){
+                                    erros = erros + 1
+                                    console.log("n de erros: " + erros)
+                                    posicao++
+                                    console.log("posição=" + posicao)
+                                    }
+
+                                if(erros == quantiapool && tentativarestante>1){
+                                    var divNova = document.createElement("div"); //cria uma nova div
+                                    var conteudoNovo = document.createTextNode("Você errou, esse não era nenhum dos números que eu estava pensando!!Mas você ainda tem " + tentativarestante + " tentativas");//cria um mono nó de texto
+                                    divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
+                                    // adiciona o novo elemento criado e seu conteúdo ao DOM
+                                    var divAtual = document.getElementById("content");
+                                    document.body.insertBefore(divNova, divAtual);
+                                    erros = 0
+                                    input.value = ""
+                                }
+                                
+                            }
+                        }
+                        if (tentativarestante==1){
+                            var divNova = document.createElement("div"); //cria uma nova div
+                                    var conteudoNovo = document.createTextNode("Você errou, esse não era nenhum dos números que eu estava pensando!!Mas você ainda tem uma ultima tentativa");//cria um mono nó de texto
+                                    divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
+                                    // adiciona o novo elemento criado e seu conteúdo ao DOM
+                                    var divAtual = document.getElementById("content");
+                                    document.body.insertBefore(divNova, divAtual);
+                                    erros = 0
+                                    input.value = ""
+                        }
+                       
+                    }
+                    if (tentativarestante >= -1 && tentativarestante < 1) {
+                                    document.write("Você esgotou suas tentativas, recarregue a página para jogar novamente")
+                                    input.value= ""
+                        }    
+                }
+            
+        }   
+        
+    var quantiapool;
+    quantiapool= prompt("Quantos números de 1 a 10 eu posso escolher?")
+    var segredos = sorteianumeros(quantiapool)
     var input = document.querySelector("input")
         input.focus ();
     var button = document.querySelector("button")
     var tentativa = 0
     var tentativarestante =  4 
-    
-    function verifica() {
-        if (input.value != 0) {
-        if (tentativarestante == 1) {
-                    document.getElementById("content").innerHTML ="Você esgotou suas tentativas"
-                    input.value= ""
-       }
-       else{
-                if(input.value == segredo) {
-                document.getElementById("content").innerHTML ="Você acertou!!O número que eu estava pensando realmente era " + segredo + "!!"
-                }
-                else{
-                    input.value= "";
-                    tentativarestante = tentativarestante -1
-                    var divNova = document.createElement("div");
-                    var conteudoNovo = document.createTextNode("Você errou, esse não era o número que eu estava pensando!!Mas você ainda tem " + tentativarestante + " tentativas");
-                    divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
-
-                    // adiciona o novo elemento criado e seu conteúdo ao DOM
-                    var divAtual = document.getElementById("content");
-                    document.body.insertBefore(divNova, divAtual);
-            }} 
-    }}
+    console.log(segredos)
         
     button.onclick = verifica; 
 
