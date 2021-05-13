@@ -6,32 +6,42 @@
 </head>
 <body>
     <p>Resultado:</p>
+<div id="content">
+
+</div>
 <script>
-    var segredo =2
+    var segredo = Math.floor(Math.random() * 10) + 1
+        console.log(segredo)
     var input = document.querySelector("input")
         input.focus ();
     var button = document.querySelector("button")
     var tentativa = 0
-    var tentativarestante =  3 - tentativa
+    var tentativarestante =  4 
+    
     function verifica() {
-       if(input.value == segredo) {
-           document.append("<br><br><br><br><br><br><br><br><p>Você acertou!!O número que eu estava pensando realmente era " + segredo + "!!<br></p>")
+        if (input.value != 0) {
+        if (tentativarestante == 1) {
+                    document.getElementById("content").innerHTML ="Você esgotou suas tentativas"
+                    input.value= ""
        }
        else{
-            tentativa++
-            document.write("<br><br><br><br><br><br><br><br><p>Você errou, esse não era o número que eu estava pensando!!<br>Mas você ainda tem " + tentativarestante + " tentativas<hr></p>")
+                if(input.value == segredo) {
+                document.getElementById("content").innerHTML ="Você acertou!!O número que eu estava pensando realmente era " + segredo + "!!"
+                }
+                else{
+                    input.value= "";
+                    tentativarestante = tentativarestante -1
+                    var divNova = document.createElement("div");
+                    var conteudoNovo = document.createTextNode("Você errou, esse não era o número que eu estava pensando!!Mas você ainda tem " + tentativarestante + " tentativas");
+                    divNova.appendChild(conteudoNovo); //adiciona o nó de texto à nova div criada
 
-            }
-        
-        if (tentativa == 3) {
-        document.write("Você esgotou suas tentativas<hr>")
-        }
-        input.value= "";
-       
-    }
+                    // adiciona o novo elemento criado e seu conteúdo ao DOM
+                    var divAtual = document.getElementById("content");
+                    document.body.insertBefore(divNova, divAtual);
+            }} 
+    }}
         
     button.onclick = verifica; 
 
 </script>
-
 </body>
